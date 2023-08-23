@@ -18,9 +18,10 @@ app.use(express.json());
 
 
 dotenv.config();
-app.get('/', (req,res)=>{
-    res.send("Backend working fine!");
-})
+DBConnection();
+// app.get('/', (req,res)=>{
+//     res.send("Backend working fine!");
+// })
 
 // app.get('/notes',(req,res)=>{
 //     res.send(notes);
@@ -30,10 +31,10 @@ app.use('/user', userRoutes);
 app.use('/notes',noteRoutes);
 
 
-app.get('/notes/:id',(req,res)=>{
-    const note = notes.find((n)=> n._id === req.params.id)
-    res.send(note);
-})
+// app.get('/notes/:id',(req,res)=>{
+//     const note = notes.find((n)=> n._id === req.params.id)
+//     res.send(note);
+// })
 
 // // ----------------DEPLOYMENT---------------------
 
@@ -54,7 +55,6 @@ app.get('/notes/:id',(req,res)=>{
 
 // // ----------------DEPLOYMENT---------------------
 
-DBConnection();
 
 app.use(notFound);
 app.use(errorHandler);
