@@ -39,8 +39,6 @@ app.use('/notes',noteRoutes);
 
 // ----------------DEPLOYMENT---------------------
 
-const __dirname = path.resolve();
-
 // Serve static files (CSS, JS, images, etc.) from a directory if needed
 app.use(express.static(path.join(__dirname, 'public')));
 
