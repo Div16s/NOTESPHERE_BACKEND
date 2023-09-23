@@ -39,20 +39,15 @@ app.use('/notes',noteRoutes);
 
 // ----------------DEPLOYMENT---------------------
 
-const __dirname1 = path.resolve();
+const __dirname = path.resolve();
 
-if(process.env.NODE_ENV==='production'){
-    app.use(express.static(path.join(__dirname1,"/client/build")));
+// Serve static files (CSS, JS, images, etc.) from a directory if needed
+app.use(express.static(path.join(__dirname, 'public')));
 
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname1,"client","build","index.html"));
-    });
-}
-else{
-    app.get('/', (req,res)=>{
-        res.send("Backend working fine!");
-    })
-}
+// Catch-all route for SPA (place this route after serving static files)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // ----------------DEPLOYMENT---------------------
 
