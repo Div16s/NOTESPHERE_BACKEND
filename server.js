@@ -40,11 +40,11 @@ app.use('/notes',noteRoutes);
 // ----------------DEPLOYMENT---------------------
 const __dirname = path.resolve();
 // Serve static files (CSS, JS, images, etc.) from a directory if needed
-app.use(express.static(path.join(dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Catch-all route for SPA (place this route after serving static files)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // ----------------DEPLOYMENT---------------------
