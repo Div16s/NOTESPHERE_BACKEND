@@ -19,9 +19,10 @@ app.use(express.json());
 
 dotenv.config();
 DBConnection();
-// app.get('/', (req,res)=>{
-//     res.send("Backend working fine!");
-// })
+
+app.get('/', (req,res)=>{
+    res.send("Backend working fine!");
+})
 
 // app.get('/notes',(req,res)=>{
 //     res.send(notes);
