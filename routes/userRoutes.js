@@ -4,8 +4,8 @@ const {protect} = require('../middleWares/authMiddleWare.js')
 
 const router = express.Router();
 
-router.route('https://notesphere-backend.vercel.app/').post(registerUser);
-router.route('https://notesphere-backend.vercel.app/login').post(authUser);
-router.route('https://notesphere-backend.vercel.app/profile').post(protect,updateUserProfile);
+router.route('/').post(registerUser);
+router.route('/login').post(authUser);
+router.route('/profile').post(protect,updateUserProfile);
 
 module.exports =  router;
