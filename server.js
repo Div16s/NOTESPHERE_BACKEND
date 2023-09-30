@@ -11,7 +11,19 @@ const path = require('path');
 
 const app = express();
 
-app.use(cors({origin: "https://notesphere-flame.vercel.app"}));
+const whitelist = ["https://notesphere-flame.vercel.app"];
+const corsOption = {
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOption));
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
