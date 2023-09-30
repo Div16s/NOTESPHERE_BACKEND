@@ -11,7 +11,12 @@ const path = require('path');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://notesphere-flame.vercel.app', // Replace with your frontend URL
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
+
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
