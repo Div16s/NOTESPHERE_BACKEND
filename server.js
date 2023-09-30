@@ -14,7 +14,7 @@ const app = express();
 const corsOptions = {
   origin: 'https://notesphere-flame.vercel.app', // Replace with your frontend URL
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
+  allowedHeaders: 'Content-Type,Authorization,Access-Control-Allow-Origin',
 };
 
 app.use(cors(corsOptions));
