@@ -11,7 +11,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(cors({origin: "https://notesphere-flame.vercel.app/"}));
+app.use(cors({origin: "https://notesphere-flame.vercel.app"}));
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
