@@ -23,7 +23,7 @@ const corsOption = {
     optionsSuccessStatus: 200
 }
 
-app.use(cors(corsOption));
+app.use(cors(({origin:'*'}));
 app.use(express.urlencoded({extended:true}));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
